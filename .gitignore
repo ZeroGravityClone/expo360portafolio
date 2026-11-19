@@ -1,0 +1,8 @@
+# Secrets y datos personales — nunca se suben al repositorio
+.dev.vars
+.env
+.env.*
+
+# Sistema
+Thumbs.db
+.DS_Store

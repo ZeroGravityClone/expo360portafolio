@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#003399">
+<title>José Armando Ochoa Barroso · Portafolio EXPO 360° · UNIR READIC</title>
+<meta name="description" content="Portafolio de José Armando Ochoa Barroso, TSU en Informática. Proyectos Fundanis y TEG SAD-TH v2. EXPO 360° — IUT READIC UNIR.">
+<style>
+  :root{
+    --azul-rey:#003399;
+    --azul-profundo:#001F66;
+    --cian:#00A3E0;
+    --fondo:#F4F7FB;
+    --blanco:#fff;
+    --borde:#E3EAF4;
+    --texto:#1B2437;
+    --texto-suave:#5A6B87;
+    --indigo:#4F46E5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--fondo);
+    color:var(--texto);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:480px;margin:0 auto;padding:18px 14px 36px}
+
+  /* ---------- Cabecera ---------- */
+  .hero{
+    background:linear-gradient(140deg,var(--azul-profundo) 0%,var(--azul-rey) 62%,#0049B8 100%);
+    color:var(--blanco);
+    border-radius:22px;
+    padding:26px 18px 22px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,31,102,.28);
+  }
+  .badge{
+    display:inline-block;
+    background:rgba(0,163,224,.16);
+    border:1px solid rgba(0,163,224,.6);
+    color:#BDE9FB;
+    font-size:11.5px;
+    font-weight:800;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:999px;
+  }
+  .hero h1{font-size:25px;line-height:1.22;margin:14px 0 5px;font-weight:800}
+  .hero .rol{color:rgba(255,255,255,.86);font-size:15px;font-weight:600}
+  .hero .inst{color:rgba(255,255,255,.62);font-size:12.5px;margin-top:2px}
+
+  .contactos{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
+  .contacto{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+    min-height:66px;padding:8px 4px;
+    background:var(--blanco);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:15px;
+    color:var(--azul-profundo);
+    text-decoration:none;
+    font-size:12px;font-weight:700;
+    box-shadow:0 4px 10px rgba(0,0,0,.14);
+    transition:transform .12s ease,box-shadow .12s ease;
+  }
+  .contacto:active{transform:scale(.96)}
+  .contacto svg{width:22px;height:22px;fill:var(--azul-rey)}
+  .tel-linea{display:inline-block;margin-top:12px;color:rgba(255,255,255,.85);font-size:13.5px;font-weight:600;text-decoration:none}
+  .tel-linea u{text-decoration-color:rgba(255,255,255,.4)}
+
+  /* ---------- Secciones ---------- */
+  .sec-titulo{
+    display:flex;align-items:center;gap:10px;
+    margin:26px 0 13px;
+    font-size:17.5px;font-weight:800;color:var(--azul-profundo);
+  }
+  .sec-titulo::before{content:"";width:5px;height:21px;border-radius:3px;background:var(--cian);flex:none}
+  .sec-sub{font-size:13.5px;color:var(--texto-suave);margin:-6px 0 14px}
+
+  /* ---------- Tarjetas de proyecto ---------- */
+  .tarjeta{
+    background:var(--blanco);
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:17px;
+    margin-bottom:15px;
+    box-shadow:0 5px 16px rgba(0,31,102,.07);
+  }
+  .etiqueta{
+    display:inline-block;
+    font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;border:1px solid;
+  }
+  .etiqueta--demo{background:#E6F7EE;color:#0B7A3B;border-color:#B5E5C9}
+  .etiqueta--prod{background:#E7EFFB;color:#003399;border-color:#C6D9F5}
+  .etiqueta--teg{background:#ECEBFC;color:#4338CA;border-color:#CDCBFA}
+  .tarjeta h3{font-size:17.5px;font-weight:800;color:var(--azul-profundo);margin:10px 0 2px;line-height:1.3}
+  .org{font-size:12.5px;font-weight:700;color:var(--texto-suave);margin-bottom:9px}
+  .desc{font-size:14px;color:#3D4A63;margin-bottom:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin-bottom:13px}
+  .chips li{
+    font-size:11px;font-weight:700;
+    background:var(--fondo);border:1px solid var(--borde);color:var(--azul-profundo);
+    padding:4px 10px;border-radius:999px;
+  }
+  .nota{font-size:12.5px;line-height:1.45;border-radius:11px;padding:9px 12px;margin-bottom:14px}
+  .nota--demo{background:#E6F7EE;color:#0B7A3B;border:1px dashed #9FD9BA}
+  .nota--prod{background:#F1F5FB;color:#5A6B87;border:1px solid #E0E8F4}
+  .nota--teg{background:#F3F3FD;color:#4338CA;border:1px solid #DDDBFB}
+
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;min-height:52px;padding:12px 16px;
+    border-radius:14px;
+    font-size:15.5px;font-weight:800;text-decoration:none;
+    transition:transform .12s ease,filter .12s ease;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn svg{width:17px;height:17px;flex:none}
+  .btn--live{background:var(--cian);color:var(--azul-profundo)}
+  .btn--prod{background:var(--azul-rey);color:var(--blanco)}
+  .btn--prod svg{fill:currentColor}
+  .btn--teg{background:var(--indigo);color:var(--blanco)}
+  .btn--teg svg{fill:currentColor}
+
+  /* ---------- CTA final ---------- */
+  .cta{
+    background:var(--blanco);
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:19px 17px;
+    text-align:center;
+    box-shadow:0 5px 16px rgba(0,31,102,.07);
+  }
+  .cta h3{font-size:16.5px;font-weight:800;color:var(--azul-profundo);margin-bottom:5px}
+  .cta p{font-size:13.5px;color:var(--texto-suave);margin-bottom:14px}
+
+  .pie{margin-top:26px;text-align:center;font-size:12.5px;color:var(--texto-suave);line-height:1.8}
+  .pie strong{color:var(--azul-profundo)}
+
+  a:focus-visible,button:focus-visible{outline:3px solid var(--cian);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= CABECERA ================= -->
+  <header class="hero">
+    <span class="badge">UNIR READIC · EXPO 360°</span>
+    <h1>José Armando Ochoa Barroso</h1>
+    <p class="rol">TSU en Informática</p>
+    <p class="inst">IUT READIC · UNIR</p>
+
+    <nav class="contactos" aria-label="Contacto directo">
+      <a class="contacto" href="{{WHATSAPP_URL}}" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a class="contacto" href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" aria-label="Mi perfil de LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a class="contacto" href="{{GITHUB_URL}}" target="_blank" rel="noopener" aria-label="Mi perfil de GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+    </nav>
+    <a class="tel-linea" href="{{PHONE_TEL}}">o llama al <u>{{PHONE_DISPLAY}}</u></a>
+  </header>
+
+  <!-- ================= PROYECTOS ================= -->
+  <h2 class="sec-titulo">Proyectos</h2>
+  <p class="sec-sub">4 proyectos · el 1 y el 4 se prueban en vivo en el stand</p>
+
+  <!-- Proyecto 1 — Demo interactiva -->
+  <article class="tarjeta">
+    <span class="etiqueta etiqueta--demo">Demo Interactiva</span>
+    <h3>Fundanis Requisiciones</h3>
+    <p class="org">Fundanis · Alcaldía del Municipio Maracaibo</p>
+    <p class="desc">Sistema web progresivo (PWA) para digitalizar y automatizar la gestión de requisiciones de materiales y servicios, desde la solicitud y aprobación administrativa hasta el despacho y la emisión de tickets de atención. Incluye usuarios por roles, seguimiento de solicitudes, notificaciones automáticas y consulta de disponibilidad, con interfaz adaptable a móvil y computadora.</p>
+    <ul class="chips">
+      <li>React</li><li>Vite</li><li>Tailwind CSS v4</li><li>Cloudflare D1</li><li>Web Push</li><li>PWA</li>
+    </ul>
+    <p class="nota nota--demo">Acceso libre para asistentes: pruébala en vivo en el stand.</p>
+    <a class="btn btn--live" href="{{DEMO1_URL}}" target="_blank" rel="noopener">
+      Probar Demo en Vivo
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </article>
+
+  <!-- Proyecto 2 — En producción -->
+  <article class="tarjeta">
+    <span class="etiqueta etiqueta--prod">En Producción</span>
+    <h3>Fundanis · Sistema de Reportes</h3>
+    <p class="org">Fundanis · Alcaldía del Municipio Maracaibo</p>
+    <p class="desc">Aplicación web progresiva (PWA) para digitalizar el registro y seguimiento de las actividades del personal técnico: trabajos de campo, servicios realizados, materiales utilizados y evidencias fotográficas de antes y después.</p>
+    <ul class="chips">
+      <li>React</li><li>Vite</li><li>Tailwind CSS v4</li><li>Cloudflare D1</li><li>Backblaze B2</li><li>JWT</li>
+    </ul>
+    <p class="nota nota--prod">Sistema en producción. Demostración segura en entorno controlado, sin exponer datos reales.</p>
+    <a class="btn btn--prod" href="{{REPORTES_URL}}" target="_blank" rel="noopener">
+      Ver Demostración
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </article>
+
+  <!-- Proyecto 3 — En producción -->
+  <article class="tarjeta">
+    <span class="etiqueta etiqueta--prod">En Producción</span>
+    <h3>Formularios Offline · Estadística Institucional</h3>
+    <p class="org">Fundanis · Alcaldía del Municipio Maracaibo</p>
+    <p class="desc">Aplicación web progresiva (PWA) para digitalizar la recopilación de información estadística institucional mediante formularios interactivos, con una experiencia de uso similar a Google Forms y funcionamiento sin conexión.</p>
+    <ul class="chips">
+      <li>React</li><li>Vite</li><li>Tailwind CSS v4</li><li>Dexie / IndexedDB</li><li>Workbox</li><li>Google Sheets API</li>
+    </ul>
+    <p class="nota nota--prod">En producción — por favor <strong>NO realices registros</strong> desde la feria (solo consulta).</p>
+    <a class="btn btn--prod" href="{{FORMS_URL}}" target="_blank" rel="noopener">
+      Ver Formulario
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </article>
+
+  <!-- Proyecto 4 — TEG -->
+  <article class="tarjeta">
+    <span class="etiqueta etiqueta--teg">TEG · Trabajo Especial de Grado</span>
+    <h3>SAD-TH v2 · Archivo Digital de Talento Humano</h3>
+    <p class="org">TEG · Hospital General del Sur</p>
+    <p class="desc">Sistema web para digitalizar, organizar y gestionar expedientes laborales del Departamento de Talento Humano, centralizando documentos, información del personal y el estado de los archivos físicos. Incorpora inteligencia artificial para extraer datos de documentos escaneados, clasificarlos automáticamente y auditar la integridad documental según el estatus laboral de cada trabajador.</p>
+    <ul class="chips">
+      <li>React 19</li><li>Vite 8</li><li>Hono · Workers</li><li>Cloudflare D1</li><li>Gemini 2.5 Flash (IA)</li><li>jsPDF</li>
+    </ul>
+    <p class="nota nota--teg">Acceso con cuenta <strong>guest</strong> — solicítala en el stand.</p>
+    <a class="btn btn--teg" href="{{TEG_URL}}" target="_blank" rel="noopener">
+      Ver TEG / Demo
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </article>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section class="cta">
+    <h3>¿Te interesa alguno de estos proyectos?</h3>
+    <p>Conversemos en la feria o escríbeme después.</p>
+    <a class="btn btn--prod" href="{{WHATSAPP_URL}}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      Escríbeme por WhatsApp
+    </a>
+  </section>
+
+  <footer class="pie">
+    <strong>EXPO 360° · IUT READIC UNIR</strong><br>
+    José Armando Ochoa Barroso · TSU en Informática<br>
+    {{PHONE_DISPLAY}}
+  </footer>
+
+</div>
+</body>
+</html>
